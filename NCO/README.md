@@ -56,7 +56,7 @@ endmodule
 
 <div align="center">
     <figure >
-    <img src=" screens/terosnco.jpg" width="99%"/>
+    <img src="screens/terosnco.jpg" width="99%"/>
     <figcaption><center>Рисунок 1. Схема NCO в TerosHDL.</center></figcaption>
     </figure>
 </div>
@@ -88,7 +88,7 @@ endmodule
 
 <div align="center">
     <figure >
-    <img src=" screens/vivadonco.jpg" width="99%"/>
+    <img src="screens/vivadonco.jpg" width="99%"/>
     <figcaption><center>Рисунок 2. RTL Schematic NCO в Vivado.</center></figcaption>
     </figure>
 </div>
@@ -98,7 +98,7 @@ endmodule
 
 <div align="center">
     <figure >
-    <img src=" screens/sinus.jpg" width="99%"/>
+    <img src="screens/sinus.jpg" width="99%"/>
     <figcaption><center>Рисунок 3. Тестирование NCO.</center></figcaption>
     </figure>
 </div>

@@ -10,6 +10,6 @@
 
 <div align="center">
     <figure>
-    <img src=" ./media/fpga.jpg" width="99%"/>
+    <img src="./media/fpga.jpg" width="99%"/>
     </figure>
 </div>

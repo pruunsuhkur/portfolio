@@ -7,7 +7,7 @@
 
 <div align="center">
     <figure >
-    <img src=" screens/ACH.jpg" width="99%"/>
+    <img src="screens/ACH.jpg" width="99%"/>
     <figcaption><center>Рисунок 1. АЧХ цифрового фильтра в TFilter.</center></figcaption>
     </figure>
 </div>
@@ -16,7 +16,7 @@
 
 <div align="center">
     <figure >
-    <img src=" screens/IM.jpg" width="99%"/>
+    <img src="screens/IM.jpg" width="99%"/>
     <figcaption><center>Рисунок 2. Импульсная характеристика цифрового фильтра в TFilter.</center></figcaption>
     </figure>
 </div>
@@ -27,14 +27,14 @@
 
 <div align="center">
     <figure >
-    <img src=" screens/simplearch.jpg" width="66%"/>
+    <img src="screens/simplearch.jpg" width="66%"/>
     <figcaption><center>Рисунок 3. Традиционная архитектура фильтра.</center></figcaption>
     </figure>
 </div>
 
 <div align="center">
     <figure >
-    <img src=" screens/transversalarch.jpg" width="66%"/>
+    <img src="screens/transversalarch.jpg" width="66%"/>
     <figcaption><center>Рисунок 4. Лучшая архитектура фильтра.</center></figcaption>
     </figure>
 </div>
@@ -43,14 +43,14 @@
 
 <div align="center">
     <figure >
-    <img src=" screens/IMfact.jpg" width="99%"/>
+    <img src="screens/IMfact.jpg" width="99%"/>
     <figcaption><center>Рисунок 5. Импульсная характеристика цифрового фильтра.</center></figcaption>
     </figure>
 </div>
 
 <div align="center">
     <figure >
-    <img src=" screens/ACHfact.jpg" width="99%"/>
+    <img src="screens/ACHfact.jpg" width="99%"/>
     <figcaption><center>Рисунок 6. Реакция фильтра на синусоиду с линейно возрастающей частотой.</center></figcaption>
     </figure>
 </div>
@@ -115,7 +115,7 @@ endmodule
 
 <div align="center">
     <figure >
-    <img src=" screens/simplertlasync.jpg" width="99%"/>
+    <img src="screens/simplertlasync.jpg" width="99%"/>
     <figcaption><center>Рисунок 7. RTL Shematic данного фильтра.</center></figcaption>
     </figure>
 </div>
@@ -130,7 +130,7 @@ create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
 
 <div align="center">
     <figure >
-    <img src=" screens/simpleIDasyncslack.jpg" width="99%"/>
+    <img src="screens/simpleIDasyncslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 8. Implemented Design простого фильтра с асинхронным сбросом.</center></figcaption>
     </figure>
 </div>
@@ -180,7 +180,7 @@ Utilization Report даёт следующую информацию:
 
 <div align="center">
     <figure >
-    <img src=" screens/simpleIDsyncslack.jpg" width="99%"/>
+    <img src="screens/simpleIDsyncslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 9. Implemented Design простого фильтра с синхронным сбросом.</center></figcaption>
     </figure>
 </div>
@@ -285,7 +285,7 @@ endmodule
 
 <div align="center">
     <figure >
-    <img src=" screens/transversalrtlasync.jpg" width="99%"/>
+    <img src="screens/transversalrtlasync.jpg" width="99%"/>
     <figcaption><center>Рисунок 10. RTL Shematic данного фильтра.</center></figcaption>
     </figure>
 </div>
@@ -294,7 +294,7 @@ endmodule
 
 <div align="center">
     <figure >
-    <img src=" screens/transversalIDasyncslack.jpg" width="99%"/>
+    <img src="screens/transversalIDasyncslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 11. Implemented Design альтернативного фильтра с асинхронным сбросом.</center></figcaption>
     </figure>
 </div>
@@ -346,7 +346,7 @@ Utilization Report на этот раз говорит следующее:
 
 <div align="center">
     <figure >
-    <img src=" screens/transversalIDsyncslack.jpg" width="99%"/>
+    <img src="screens/transversalIDsyncslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 12. Implemented Design альтернативного фильтра с синхронным сбросом.</center></figcaption>
     </figure>
 </div>

@@ -6,14 +6,14 @@
 
 <div align="center">
     <figure >
-    <img src=" screens/compmult.jpg" width="77%"/>
+    <img src="screens/compmult.jpg" width="77%"/>
     <figcaption><center>Рисунок 1. Обычная реализация умножения комплексных чисел.</center></figcaption>
     </figure>
 </div>
 
 <div align="center">
     <figure >
-    <img src=" screens/altcompmult.jpg" width="77%"/>
+    <img src="screens/altcompmult.jpg" width="77%"/>
     <figcaption><center>Рисунок 2. Альтерантивная реализация умножения комплексных чисел.</center></figcaption>
     </figure>
 </div>
@@ -48,14 +48,14 @@ endmodule
 
 <div align="center">
     <figure >
-    <img src=" screens/simplemult.jpg" width="99%"/>
+    <img src="screens/simplemult.jpg" width="99%"/>
     <figcaption><center>Рисунок 3. RTL Schematic обычной реализации умножения комплексных чисел.</center></figcaption>
     </figure>
 </div>
 
 <div align="center">
     <figure >
-    <img src=" screens/sim.jpg" width="99%"/>
+    <img src="screens/sim.jpg" width="99%"/>
     <figcaption><center>Рисунок 4. Временная диаграмма получившегося умножителя.</center></figcaption>
     </figure>
 </div>
@@ -72,7 +72,7 @@ create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
 
 <div align="center">
     <figure >
-    <img src=" screens/simplemultslack.jpg" width="99%"/>
+    <img src="screens/simplemultslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 5. Implemented design обычной реализации умножения комплексных чисел с указанием критического пути.</center></figcaption>
     </figure>
 </div>
@@ -99,7 +99,7 @@ create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
 
 <div align="center">
     <figure >
-    <img src=" screens/altmult.jpg" width="99%"/>
+    <img src="screens/altmult.jpg" width="99%"/>
     <figcaption><center>Рисунок 6. RTL Schematic альтернативной реализации умножения комплексных чисел.</center></figcaption>
     </figure>
 </div>
@@ -110,7 +110,7 @@ create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
 
 <div align="center">
     <figure >
-    <img src=" screens/altmultslack.jpg" width="99%"/>
+    <img src="screens/altmultslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 7. Implemented design альтернативной реализации умножения комплексных чисел с указанием критического пути.</center></figcaption>
     </figure>
 </div>
@@ -141,21 +141,21 @@ create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
 
 <div align="center">
     <figure >
-    <img src=" screens/altsimplepipe.jpg" width="99%"/>
+    <img src="screens/altsimplepipe.jpg" width="99%"/>
     <figcaption><center>Рисунок 8. RTL Schematic альтернативной реализации умножения комплексных чисел с одним промежуточным регистром.</center></figcaption>
     </figure>
 </div>
 
 <div align="center">
     <figure >
-    <img src=" screens/altsimplepipesim.jpg" width="99%"/>
+    <img src="screens/altsimplepipesim.jpg" width="99%"/>
     <figcaption><center>Рисунок 9. Временная диаграма 1-стадийного конвейерного умножителя.</center></figcaption>
     </figure>
 </div>
 
 <div align="center">
     <figure >
-    <img src=" screens/altsimplepipeslack.jpg" width="99%"/>
+    <img src="screens/altsimplepipeslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 10. Implemented design альтернативной реализации умножения комплексных чисел с одним промежуточным регистром с указанием критического пути.</center></figcaption>
     </figure>
 </div>
@@ -203,21 +203,21 @@ always @(posedge clk)
 
 <div align="center">
     <figure >
-    <img src=" screens/altbestpipe.jpg" width="99%"/>
+    <img src="screens/altbestpipe.jpg" width="99%"/>
     <figcaption><center>Рисунок 11. RTL Schematic альтернативной реализации умножения комплексных чисел с 3-х стадийной конвейеризацией.</center></figcaption>
     </figure>
 </div>
 
 <div align="center">
     <figure >
-    <img src=" screens/altbestpipesim.jpg" width="99%"/>
+    <img src="screens/altbestpipesim.jpg" width="99%"/>
     <figcaption><center>Рисунок 12. Временная диаграма 3-стадийного конвейерного умножителя.</center></figcaption>
     </figure>
 </div>
 
 <div align="center">
     <figure >
-    <img src=" screens/altbestpipeslack.jpg" width="99%"/>
+    <img src="screens/altbestpipeslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 13. Implemented design альтернативной реализации умножения комплексных чисел с 3-х стадийной конвейеризацией с указанием критического пути.</center></figcaption>
     </figure>
 </div>
@@ -228,7 +228,7 @@ always @(posedge clk)
 
 <div align="center">
     <figure >
-    <img src=" screens/altbestpipesynch.jpg" width="99%"/>
+    <img src="screens/altbestpipesynch.jpg" width="99%"/>
     <figcaption><center>Рисунок 14. RTL Schematic альтернативной реализации умножения комплексных чисел с 3-х стадийной конвейеризацией и синхронным сбросом.</center></figcaption>
     </figure>
 </div>
@@ -237,7 +237,7 @@ always @(posedge clk)
 
 <div align="center">
     <figure >
-    <img src=" screens/simwithsynch.jpg" width="99%"/>
+    <img src="screens/simwithsynch.jpg" width="99%"/>
     <figcaption><center>Рисунок 15. Временная диаграма 3-стадийного конвейерного умножителя с синхронным сбросом.</center></figcaption>
     </figure>
 </div>
@@ -246,7 +246,7 @@ always @(posedge clk)
 
 <div align="center">
     <figure >
-    <img src=" screens/altbestpipesynchslack.jpg" width="99%"/>
+    <img src="screens/altbestpipesynchslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 16. Implemented design альтернативной реализации умножения комплексных чисел с 3-х стадийной конвейеризацией с синхронным сбросом с указанием критического пути.</center></figcaption>
     </figure>
 </div>
@@ -255,7 +255,7 @@ always @(posedge clk)
 
 <div align="center">
     <figure >
-    <img src=" screens/postimptimingsim.jpg" width="99%"/>
+    <img src="screens/postimptimingsim.jpg" width="99%"/>
     <figcaption><center>Рисунок 17. Post-Implementation Timing Simulation</center></figcaption>
     </figure>
 </div>
@@ -266,7 +266,7 @@ always @(posedge clk)
 
 <div align="center">
     <figure >
-    <img src=" screens/altbestpipeasynch.jpg" width="99%"/>
+    <img src="screens/altbestpipeasynch.jpg" width="99%"/>
     <figcaption><center>Рисунок 18. RTL Schematic альтернативной реализации умножения комплексных чисел с 3-х стадийной конвейеризацией и асинхронным сбросом.</center></figcaption>
     </figure>
 </div>
@@ -275,7 +275,7 @@ always @(posedge clk)
 
 <div align="center">
     <figure >
-    <img src=" screens/simwithasynch.jpg" width="99%"/>
+    <img src="screens/simwithasynch.jpg" width="99%"/>
     <figcaption><center>Рисунок 19. Временная диаграма 3-стадийного конвейерного умножителя с асинхронным сбросом.</center></figcaption>
     </figure>
 </div>
@@ -284,7 +284,7 @@ always @(posedge clk)
 
 <div align="center">
     <figure >
-    <img src=" screens/altbestpipeasynchslack.jpg" width="99%"/>
+    <img src="screens/altbestpipeasynchslack.jpg" width="99%"/>
     <figcaption><center>Рисунок 20. Implemented design альтернативной реализации умножения комплексных чисел с 3-х стадийной конвейеризацией с асинхронным сбросом с указанием критического пути.</center></figcaption>
     </figure>
 </div>
