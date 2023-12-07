@@ -1,4 +1,5 @@
-module altbestpipe  #(parameter N = 8) ( 
+`timescale 1ns/1ps
+module compmult  #(parameter N = 8) ( 
   input clk,
   input reset,
 	input wire signed [  N-1 : 0] a_r, 
@@ -8,39 +9,55 @@ module altbestpipe  #(parameter N = 8) (
 	output reg signed [2*N-1 : 0] c_r, 
 	output reg signed [2*N-1 : 0] c_i);
 
-	integer i;
-	reg [0:2*N-1] stage0 [5 : 0];
-  always @(posedge clk or posedge reset)
-    if (reset)
-        for (i = 0; i < 6; i = i + 1)
-          stage0[i] <= 0;
+	reg signed [0:N  ] stage0_0;
+  reg signed [0:N  ] stage0_1;
+  reg signed [0:N-1] stage0_2;
+  reg signed [0:N-1] stage0_3;
+  reg signed [0:N-1] stage0_4;
+  reg signed [0:N-1] stage0_5;
+  always @(posedge clk  or posedge reset)
+    if (reset) 
+      begin
+        stage0_0 <= 9'b0;
+        stage0_1 <= 9'b0;
+        stage0_2 <= 8'b0;
+        stage0_3 <= 8'b0;
+        stage0_4 <= 8'b0;
+        stage0_5 <= 8'b0;
+      end
     else  
       begin
-        stage0[0] <= a_r + a_i;
-        stage0[1] <= b_r + b_i;
-        stage0[2] <= a_r; 
-        stage0[3] <= a_i; 
-        stage0[4] <= b_r; 
-        stage0[5] <= b_i; 
+        stage0_0 <= a_r + a_i;
+        stage0_1 <= b_r + b_i;
+        stage0_2 <= a_r; 
+        stage0_3 <= a_i; 
+        stage0_4 <= b_r; 
+        stage0_5 <= b_i; 
       end
   
-  reg [0:2*N-1] stage1 [2 : 0];
+  reg signed [0:2*N-1] stage1 [2 : 0];
   always @(posedge clk or posedge reset)
     if (reset)
-      for (i = 0; i < 3; i = i + 1)
-        stage1[i] <= 0;
+      begin
+        stage1[0] <= 16'b0;
+        stage1[1] <= 16'b0;
+        stage1[2] <= 16'b0;
+      end
     else  
       begin
-        stage1[0] <= stage0[2] * stage0[4];
-        stage1[1] <= stage0[3] * stage0[5];
-        stage1[2] <= stage0[0] * stage0[1];
+        stage1[0] <= stage0_2 * stage0_4;
+        stage1[1] <= stage0_3 * stage0_5;
+        stage1[2] <= stage0_0 * stage0_1;
       end
     
-	reg [0:2*N-1] stage2 [2 : 0];
+	reg signed [0:2*N-1] stage2 [2 : 0];
   always @(posedge clk or posedge reset)
     if (reset)
-      for (i = 0; i < 3; i = i + 1)
-        stage2[i] <= 0;
+      begin
+        stage2[0] <= 16'b0;
+        stage2[1] <= 16'b0;
+        stage2[2] <= 16'b0;
+      end
     else  
       begin
         stage2[0] <= stage1[0] - stage1[1]; 
@@ -51,8 +68,8 @@ module altbestpipe  #(parameter N = 8) (
   always @(posedge clk or posedge reset)
     if (reset)
       begin
-        c_r <= 0;
-        c_i <= 0;
+        c_r <= 16'b0;
+        c_i <= 16'b0;
       end
     else  
       begin
@@ -61,3 +78,4 @@ module altbestpipe  #(parameter N = 8) (
       end  
     
 endmodule
+

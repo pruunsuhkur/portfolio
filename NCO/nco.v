@@ -1,44 +1,169 @@
-module NCO(
-  input clk, reset,
-  input  wire signed [ACC_SIZE - 1 + 1 : 0] step,
-  output reg  signed [LUT_WIDTH  + 1 - 1 : 0] out );
-  
-  parameter LUT_WIDTH  = 32;
-  parameter LUT_LENGTH = 6;
-  localparam PHASE_BITWIDTH_INTEGER = LUT_LENGTH;
-  localparam PHASE_BITWIDTH_FRACTIONAL = 2;
-  localparam ACC_SIZE = PHASE_BITWIDTH_INTEGER + PHASE_BITWIDTH_FRACTIONAL;
-  
-  reg signed [ACC_SIZE + 1 : 0] accum;
-  reg        [LUT_WIDTH  - 1 : 0] LUT [2**LUT_LENGTH - 1 : 0];
-  
-  initial begin
-    $readmemb("lut.mem", LUT);
-  end
-  
-  always @(posedge clk or posedge reset)
-    begin
-      if (reset)
-        accum <= 0;
-      else 
-        accum <= accum + step;
-    end
+module lut_based_nco #( parameter LUT_WIDTH  = 15, 
+                                  LUT_LENGTH = 6, 
+                       localparam PHASE_BITWIDTH_INTEGER = LUT_LENGTH, 
+                                  PHASE_BITWIDTH_FRACTIONAL = 2, 
+                                  ACC_SIZE = PHASE_BITWIDTH_INTEGER + PHASE_BITWIDTH_FRACTIONAL)
+(
+    input  wire                                 iclk, 
+    input  wire                                 iresetn,
+    input  wire signed [ACC_SIZE   - 1 + 1 : 0] step,
+    output reg  signed [LUT_WIDTH  + 1 - 1 : 0] out 
+);
+    
+    reg signed [ACC_SIZE   + 1 : 0] accum; 
+    reg        [LUT_WIDTH  - 1 : 0] LUT [2**LUT_LENGTH - 1 : 0]; 
+    
+    always @(posedge iclk or negedge iresetn)
+        if (~iresetn)
+            begin
+                LUT[ 0] <= 15'b000000000000000; 
+                LUT[ 1] <= 15'b000000000000000; 
+                LUT[ 2] <= 15'b000000000000000; 
+                LUT[ 3] <= 15'b000000000000000; 
+                LUT[ 4] <= 15'b000000000000000; 
+                LUT[ 5] <= 15'b000000000000000; 
+                LUT[ 6] <= 15'b000000000000000; 
+                LUT[ 7] <= 15'b000000000000000; 
+                LUT[ 8] <= 15'b000000000000000; 
+                LUT[ 9] <= 15'b000000000000000; 
+                LUT[10] <= 15'b000000000000000; 
+                LUT[11] <= 15'b000000000000000; 
+                LUT[12] <= 15'b000000000000000; 
+                LUT[13] <= 15'b000000000000000; 
+                LUT[14] <= 15'b000000000000000; 
+                LUT[15] <= 15'b000000000000000; 
+                LUT[16] <= 15'b000000000000000; 
+                LUT[17] <= 15'b000000000000000; 
+                LUT[18] <= 15'b000000000000000; 
+                LUT[19] <= 15'b000000000000000; 
+                LUT[20] <= 15'b000000000000000; 
+                LUT[21] <= 15'b000000000000000; 
+                LUT[22] <= 15'b000000000000000; 
+                LUT[23] <= 15'b000000000000000; 
+                LUT[24] <= 15'b000000000000000; 
+                LUT[25] <= 15'b000000000000000; 
+                LUT[26] <= 15'b000000000000000; 
+                LUT[27] <= 15'b000000000000000; 
+                LUT[28] <= 15'b000000000000000; 
+                LUT[29] <= 15'b000000000000000; 
+                LUT[30] <= 15'b000000000000000; 
+                LUT[31] <= 15'b000000000000000; 
+                LUT[32] <= 15'b000000000000000; 
+                LUT[33] <= 15'b000000000000000; 
+                LUT[34] <= 15'b000000000000000; 
+                LUT[35] <= 15'b000000000000000; 
+                LUT[36] <= 15'b000000000000000; 
+                LUT[37] <= 15'b000000000000000; 
+                LUT[38] <= 15'b000000000000000; 
+                LUT[39] <= 15'b000000000000000; 
+                LUT[40] <= 15'b000000000000000; 
+                LUT[41] <= 15'b000000000000000; 
+                LUT[42] <= 15'b000000000000000; 
+                LUT[43] <= 15'b000000000000000; 
+                LUT[44] <= 15'b000000000000000; 
+                LUT[45] <= 15'b000000000000000; 
+                LUT[46] <= 15'b000000000000000; 
+                LUT[47] <= 15'b000000000000000; 
+                LUT[48] <= 15'b000000000000000; 
+                LUT[49] <= 15'b000000000000000; 
+                LUT[50] <= 15'b000000000000000; 
+                LUT[51] <= 15'b000000000000000; 
+                LUT[52] <= 15'b000000000000000; 
+                LUT[53] <= 15'b000000000000000; 
+                LUT[54] <= 15'b000000000000000; 
+                LUT[55] <= 15'b000000000000000; 
+                LUT[56] <= 15'b000000000000000; 
+                LUT[57] <= 15'b000000000000000; 
+                LUT[58] <= 15'b000000000000000; 
+                LUT[59] <= 15'b000000000000000; 
+                LUT[60] <= 15'b000000000000000; 
+                LUT[61] <= 15'b000000000000000; 
+                LUT[62] <= 15'b000000000000000; 
+                LUT[63] <= 15'b000000000000000; 
+            end
+        else
+            begin
+                LUT[ 0] <= 15'b000000000000000; 
+                LUT[ 1] <= 15'b000001100101010; 
+                LUT[ 2] <= 15'b000011001010100; 
+                LUT[ 3] <= 15'b000100101111101; 
+                LUT[ 4] <= 15'b000110010100101; 
+                LUT[ 5] <= 15'b000111111001010; 
+                LUT[ 6] <= 15'b001001011101101; 
+                LUT[ 7] <= 15'b001011000001101; 
+                LUT[ 8] <= 15'b001100100101010; 
+                LUT[ 9] <= 15'b001110001000011; 
+                LUT[10] <= 15'b001111101010111; 
+                LUT[11] <= 15'b010001001100110; 
+                LUT[12] <= 15'b010010101110000; 
+                LUT[13] <= 15'b010100001110100; 
+                LUT[14] <= 15'b010101101110010; 
+                LUT[15] <= 15'b010111001101001; 
+                LUT[16] <= 15'b011000101011001; 
+                LUT[17] <= 15'b011010001000001; 
+                LUT[18] <= 15'b011011100100001; 
+                LUT[19] <= 15'b011100111111000; 
+                LUT[20] <= 15'b011110011000110; 
+                LUT[21] <= 15'b011111110001010; 
+                LUT[22] <= 15'b100001001000101; 
+                LUT[23] <= 15'b100010011110101; 
+                LUT[24] <= 15'b100011110011011; 
+                LUT[25] <= 15'b100101000110101; 
+                LUT[26] <= 15'b100110011000011; 
+                LUT[27] <= 15'b100111101000110; 
+                LUT[28] <= 15'b101000110111100; 
+                LUT[29] <= 15'b101010000100101; 
+                LUT[30] <= 15'b101011010000010; 
+                LUT[31] <= 15'b101100011010000; 
+                LUT[32] <= 15'b101101100010001; 
+                LUT[33] <= 15'b101110101000011; 
+                LUT[34] <= 15'b101111101100111; 
+                LUT[35] <= 15'b110000101111100; 
+                LUT[36] <= 15'b110001110000010; 
+                LUT[37] <= 15'b110010101111000; 
+                LUT[38] <= 15'b110011101011110; 
+                LUT[39] <= 15'b110100100110100; 
+                LUT[40] <= 15'b110101011111001; 
+                LUT[41] <= 15'b110110010101110; 
+                LUT[42] <= 15'b110111001010001; 
+                LUT[43] <= 15'b110111111100100; 
+                LUT[44] <= 15'b111000101100101; 
+                LUT[45] <= 15'b111001011010100; 
+                LUT[46] <= 15'b111010000110001; 
+                LUT[47] <= 15'b111010101111100; 
+                LUT[48] <= 15'b111011010110100; 
+                LUT[49] <= 15'b111011111011010; 
+                LUT[50] <= 15'b111100011101101; 
+                LUT[51] <= 15'b111100111101101; 
+                LUT[52] <= 15'b111101011011011; 
+                LUT[53] <= 15'b111101110110100; 
+                LUT[54] <= 15'b111110001111011; 
+                LUT[55] <= 15'b111110100101110; 
+                LUT[56] <= 15'b111110111001101; 
+                LUT[57] <= 15'b111111001011001; 
+                LUT[58] <= 15'b111111011010001; 
+                LUT[59] <= 15'b111111100110101; 
+                LUT[60] <= 15'b111111110000101; 
+                LUT[61] <= 15'b111111111000001; 
+                LUT[62] <= 15'b111111111101001; 
+                LUT[63] <= 15'b111111111111101; 
+            end
+    
+    always @(posedge iclk or negedge iresetn) 
+        if (~iresetn)
+            accum <= 10'b0;
+        else 
+            accum <= accum + step;
           
-  always @(posedge clk or posedge reset)
-    if (reset)
-      out <= 0;
-    else
-      begin
-        case (accum[ACC_SIZE + 1 : ACC_SIZE])
-          2'b00: 
-            out <= {1'b0, LUT[accum[ACC_SIZE - 1 : PHASE_BITWIDTH_FRACTIONAL]]};
-          2'b01: 
-            out <= {1'b0, LUT[~accum[ACC_SIZE - 1 : PHASE_BITWIDTH_FRACTIONAL]]};
-          2'b10: 
-            out <= {1'b1, ~LUT[accum[ACC_SIZE - 1 : PHASE_BITWIDTH_FRACTIONAL]]};
-          2'b11: 
-            out <= {1'b1, ~LUT[~accum[ACC_SIZE - 1 : PHASE_BITWIDTH_FRACTIONAL]]};
-        endcase
-      end
+    always @(posedge iclk or negedge iresetn) 
+        if (~iresetn)
+            out <= 16'b0;
+        else
+            case (accum[ACC_SIZE + 1 : ACC_SIZE])
+                2'b00: out <= {1'b0,  LUT[ accum[ACC_SIZE - 1 : PHASE_BITWIDTH_FRACTIONAL]]};
+                2'b01: out <= {1'b0,  LUT[~accum[ACC_SIZE - 1 : PHASE_BITWIDTH_FRACTIONAL]]};
+                2'b10: out <= {1'b1, ~LUT[ accum[ACC_SIZE - 1 : PHASE_BITWIDTH_FRACTIONAL]]};
+                2'b11: out <= {1'b1, ~LUT[~accum[ACC_SIZE - 1 : PHASE_BITWIDTH_FRACTIONAL]]};
+            endcase
 
 endmodule
