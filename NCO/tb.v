@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module tb_lut_based_nco #(parameter LUT_WIDTH  = 15, 
+module tb_lut_based_nco #(parameter LUT_WIDTH  = 16, 
                                     LUT_LENGTH = 6,
                          localparam PHASE_BITWIDTH_INTEGER = LUT_LENGTH,
                          localparam PHASE_BITWIDTH_FRACTIONAL = 2,
@@ -7,8 +7,8 @@ module tb_lut_based_nco #(parameter LUT_WIDTH  = 15,
 
 reg iclk = 1'b0;
 reg iresetn = 1'b1;
-reg  signed [ACC_SIZE   + 1 - 1 : 0] step;
-wire signed [LUT_WIDTH  + 1 - 1 : 0] out;
+reg 				[ACC_SIZE + 1 - 1 : 0] step;
+wire signed [LUT_WIDTH    - 1 : 0] out;
 
 lut_based_nco dut (iclk, iresetn, step, out);
 
@@ -39,7 +39,13 @@ initial
         #10000;
         step = 9'b000000000;
         #10000;
+        step = 9'b111111111;
+        #10000;
         step = 9'b111111110;
+        #10000;
+        step = 9'b111111101;
+        #10000;
+        step = 9'b111111100;
         #10000;
         $finish;
     end
