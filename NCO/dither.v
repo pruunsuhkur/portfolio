@@ -3,7 +3,7 @@ module dither
   input wire         iclk, 
   input wire         inCS, 
   input wire         iresetn, 
-  output reg [2 : 0] out
+  output reg [3 : 0] out
 );
 
 reg [7 : 0] lfsr;
@@ -24,8 +24,8 @@ always @(posedge iclk or negedge iresetn)
 
 always @(posedge iclk or negedge iresetn)
     if (~iresetn)
-        out <= 3'b000;
+        out <= 4'b0000;
     else if (~inCS)
-        out <= {lfsr[7], lfsr[6], lfsr[5]};
+        out <= {lfsr[7], lfsr[6], lfsr[5], lfsr[4]};
 
 endmodule 
