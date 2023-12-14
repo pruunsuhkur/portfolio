@@ -1,7 +1,7 @@
 module lut_based_nco #( parameter LUT_WIDTH  = 16, 
                                   LUT_LENGTH = 6, 
                        localparam PHASE_BITWIDTH_INTEGER = LUT_LENGTH, 
-                                  PHASE_BITWIDTH_FRACTIONAL = 3, 
+                                  PHASE_BITWIDTH_FRACTIONAL = 4, 
                                   ACC_SIZE = PHASE_BITWIDTH_INTEGER + PHASE_BITWIDTH_FRACTIONAL)
 (
     input wire                            iclk, 
@@ -14,11 +14,11 @@ module lut_based_nco #( parameter LUT_WIDTH  = 16,
 reg [ACC_SIZE + 1 : 0] first_sum;  
 always @(posedge iclk or negedge iresetn) 
     if (~iresetn)
-        first_sum <= 11'b0;
+        first_sum <= 12'b0;
     else if (~inCS)
         first_sum <= first_sum  + {{2{step[ACC_SIZE - 1]}}, step};
 
-wire signed [PHASE_BITWIDTH_FRACTIONAL - 1 : 0] dither_out;
+wire [PHASE_BITWIDTH_FRACTIONAL - 1 : 0] dither_out;
 dither dither (.iclk(iclk),
                .inCS(inCS),
                .iresetn(iresetn),
@@ -27,9 +27,9 @@ dither dither (.iclk(iclk),
 reg [ACC_SIZE + 1 : 0] second_sum;
 always @(posedge iclk or negedge iresetn)
     if (~iresetn)
-        second_sum <= 11'b0;
+        second_sum <= 12'b0;
     else if (~inCS)
-        second_sum <= first_sum + {{8{dither_out[2]}}, dither_out};
+        second_sum <= (dither_out[3]) ? first_sum + ~{{8{dither_out[3]}}, dither_out} + 1'b1 : first_sum + {{8{dither_out[3]}}, dither_out};
 
 reg [ACC_SIZE  - 1 : PHASE_BITWIDTH_FRACTIONAL] mem_addr;
 always @(posedge iclk or negedge iresetn)
